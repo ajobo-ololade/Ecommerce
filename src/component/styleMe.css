@@ -1,0 +1,78 @@
+:root {
+    --animate-duration: 800ms;
+    --animate-delay: 0.9s;
+  }
+.parallax {
+
+    /* The image used */
+    background-color: black;
+    background-image: url(/src/assets/ice2.jpg);
+    
+  
+    /* Set a specific height */
+    min-height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .text{
+    height:200px;
+    
+    font-size:36px
+  }
+  .drink{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+  }
+  .drinks{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+  }
+  .param{
+    word-spacing: 10px;
+  }
+  .first-1{
+    background-image: url(/src/assets/1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  .first-2{
+    background-image: url(/src/assets/2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  .first-3{
+    background-image: url(/src/assets/3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  .first-4{
+    background-image: url(/src/assets/4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  .first-5{
+    background-image: url(/src/assets/5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  .first-6{
+    background-image: url(/src/assets/6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
