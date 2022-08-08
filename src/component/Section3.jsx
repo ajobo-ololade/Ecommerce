@@ -16,13 +16,13 @@ const Section3 = () => {
   return (
    <>
    <Grid>
-   <Box sx={{ display: 'flex', justifyContent: 'center',marginTop:"40px" }} className=" animate__animated animate__fadeInUp'">
-      <Box sx={{ ...commonStyles, borderRadius: '50%' }} className="first-1 first animate__animated animate__fadeInUp" />
-      <Box sx={{...commonStyles, borderRadius: "50%" }} className="first-2 first animate__animated animate__fadeInUp" />
-      <Box sx={{...commonStyles, borderRadius: '50%' }} className="first-3 first animate__animated animate__fadeInUp" />
-      <Box sx={{...commonStyles, borderRadius: '50%' }} className="first-4 first animate__animated animate__fadeInUp" />
-      <Box sx={{ ...commonStyles,borderRadius: '50%' }} className="first-5 first animate__animated animate__fadeInUp" />
-      <Box sx={{...commonStyles, borderRadius: '50%' }} className="first-6 first animate__animated animate__fadeInUp" />
+   <Box sx={{ display: 'flex', justifyContent: 'center',marginTop:"40px" }} className="first">
+      <Box sx={{ ...commonStyles, borderRadius: '50%' }} className="first-1"/>
+      <Box sx={{...commonStyles, borderRadius: "50%" }} className="first-2" />
+      <Box sx={{...commonStyles, borderRadius: '50%' }} className="first-3" />
+      <Box sx={{...commonStyles, borderRadius: '50%' }} className="first-4" />
+      <Box sx={{ ...commonStyles,borderRadius: '50%' }} className="first-5" />
+      <Box sx={{...commonStyles, borderRadius: '50%' }} className="first-6" />
     </Box>
    </Grid>
    </>
