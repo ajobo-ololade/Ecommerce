@@ -3,8 +3,18 @@ import React from 'react'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import vid from "../assets/vid.mp4"
+import { useState } from 'react';
+import {useFormik} from "formik"
+import * as yup from 'yup'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+
 
 const SignIn = () => {
+    const navigate = useNavigate()
+    const [message, setmessage] = useState('')
+    const [status, setstatus] = useState('')
+    const url ="http://localhost:4004/user/signin"
     const [values, setValues] = React.useState({
         password: '',
         showPassword: false,
@@ -24,6 +34,32 @@ const SignIn = () => {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+    const formik = useFormik({
+        initialValues:{
+            email:"",
+            password:''
+        },
+        onSubmit:(values)=>{
+           axios.post(url,values).then((res)=> {
+            // setstatus(res.data.status)
+            setmessage(res.data.message)
+            if(res.data.status){
+                // setmessage(res.data.message)
+                localStorage.token= res.data.token
+                navigate('/dashboard')
+
+
+            }
+           })
+
+        },
+        validationSchema:yup.object({
+            email:yup.string().required(`Required Field`),
+            password:yup.string().required(`Required Field`),
+
+
+        })
+    })
   return (
    <>
    <Grid container sx={{ marginTop: "50px" }}>
@@ -41,9 +77,10 @@ const SignIn = () => {
                     <Typography variant="h4" color="initial" sx={{ padding: "20px" }}> Sign In </Typography>
                     <CardContent>
 
-                        <FormControl>
+                        <form onSubmit={formik.handleSubmit}>
+                        <p>{message}</p>
                             <Box
-                                component="form"
+                            
                                 sx={{
                                     '& .MuiTextField-root': { m: 1, width: '25ch' }, margin: "10px"
                                 }}
@@ -59,8 +96,12 @@ const SignIn = () => {
                                         variant="standard"
                                         color="error"
                                         focused
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        {...formik.getFieldProps('email')}
 
                                     />
+                                    {formik.touched.email && <div className='text-warning' style={{fontSize:'10px'}}>{formik.errors.email}</div>}
                                     <FormControl sx={{ m: 1, width: '25ch' }} variant="standard" color="error"
                                         focused>
                                         <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
@@ -70,7 +111,10 @@ const SignIn = () => {
                                             focused
                                             type={values.showPassword ? 'text' : 'password'}
                                             value={values.password}
-                                            onChange={handleChange('password')}
+                                            onChange={formik.handleChange}
+                                            onBlur={formik.handleBlur}
+                                            {...formik.getFieldProps('password')}
+                                            onInput={handleChange('password')}
                                             endAdornment={
                                                 <InputAdornment position="end">
                                                     <IconButton
@@ -85,15 +129,21 @@ const SignIn = () => {
                                                 </InputAdornment>
                                             }
                                         />
+                                        {formik.touched.password && <div className='text-warning' style={{fontSize:'10px'}}>{formik.errors.password}</div>}
 
 
                                     </FormControl>
-                                    <Button variant="contained" color="error" sx={{ backgroundColor: "red", color: "white" }}>
+                                    <Button 
+                                    type='submit'
+                                    variant="contained" 
+                                    color="error" 
+                                    sx={{ backgroundColor: "red", color: "white" }}>
                                         Sign In
                                     </Button>
+                                    
                                 </div>
                             </Box>
-                        </FormControl>
+                        </form>
 
                     </CardContent>
 

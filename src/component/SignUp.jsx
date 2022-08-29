@@ -6,9 +6,14 @@ import vid from "../assets/vid.mp4"
 import {useFormik} from "formik"
 import * as yup from "yup"
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import axios from 'axios';
 
 const SignUp = () => {
     const navigate = useNavigate()
+    const [status, setstatus] = useState('')
+    const [message, setmessage] = useState('')
+    const url = "http://localhost:4004/user/signup"
     const [values, setValues] = React.useState({
         password: '',
         showPassword: false,
@@ -40,9 +45,16 @@ const SignUp = () => {
 
         },
         onSubmit:(values)=>{
-            console.log(values)
-           
-           navigate('/signin')
+           axios.post(url,values).then((res)=>{
+            
+            setstatus(res.data.status)
+            setmessage(res.data.message)
+            if(res.data.status){
+              
+                navigate('/signin')
+            }
+
+           })
         },
         validationSchema:yup.object({
             firstName:yup.string().required(`Required Field`),
@@ -71,9 +83,11 @@ const SignUp = () => {
                 <Card sx={{ maxWidth: 345, margin: "auto", marginTop: "50px" }} className='cod'>
                     <Typography variant="h4" color="initial" sx={{ padding: "20px" }}> Sign Up </Typography>
                     
+                    
                         <CardContent>
                             
                         <form action="" onSubmit={formik.handleSubmit}>
+                        <p>{message}</p>
                         
                             <Box
                                 
@@ -182,6 +196,7 @@ const SignUp = () => {
                                      sx={{ backgroundColor: "red", color: "white" }}>
                                         Sign Up
                                     </Button>
+                                    
                                 
                             </Box>
                         

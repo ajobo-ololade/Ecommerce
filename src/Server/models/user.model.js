@@ -11,9 +11,14 @@ const userSchema = mongoose.Schema({
         require:true
     },
     
-    fullname:{
+    firstName:{
         type:String,
         require:true
+    },
+    lastName:{
+        type:String,
+        require:true
+
     },
     
     password:{

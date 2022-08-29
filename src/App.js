@@ -1,5 +1,6 @@
 import React from 'react'
-import {Routes,Route} from 'react-router-dom'
+import {Routes,Route, Navigate} from 'react-router-dom'
+import Dashboard from './component/Dashboard'
 import LandingPage from './component/LandingPage'
 import NavBar from './component/NavBar'
 import SignIn from './component/SignIn'
@@ -8,6 +9,7 @@ import SignUps from './component/SignUps'
 import Test from './component/Test'
 
 const App = () => {
+  const token = localStorage.token
   return (
     <>
     <Routes>
@@ -16,6 +18,7 @@ const App = () => {
       <Route path='/signin' element={<SignIn/>}/>
       <Route path='/test' element={<Test/>}/>
       <Route path='/signup' element={<SignUp/>}/>
+      <Route path='/dashboard' element={token?<Dashboard/>:<Navigate to ='/signin'/>}/>
       
       
 
