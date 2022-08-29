@@ -6,6 +6,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json({limit:"50mb"}))
 app.use(cors())
 require("dotenv").config()
+const userRouter = require('./routes/user.route')
+app.use('/user', userRouter)
 const PORT = process.env.PORT||3000
 const URI = process.env.MONGO_URI
 const mongoose = require("mongoose")

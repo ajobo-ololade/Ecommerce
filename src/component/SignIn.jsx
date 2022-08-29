@@ -6,10 +6,7 @@ import vid from "../assets/vid.mp4"
 
 const SignIn = () => {
     const [values, setValues] = React.useState({
-        amount: '',
         password: '',
-        weight: '',
-        weightRange: '',
         showPassword: false,
     });
 
