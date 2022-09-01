@@ -1,5 +1,6 @@
 import React from 'react'
 import {Routes,Route, Navigate} from 'react-router-dom'
+import AdminDashboard from './component/AdminDashboard'
 import Dashboard from './component/Dashboard'
 import LandingPage from './component/LandingPage'
 import NavBar from './component/NavBar'
@@ -19,6 +20,7 @@ const App = () => {
       <Route path='/test' element={<Test/>}/>
       <Route path='/signup' element={<SignUp/>}/>
       <Route path='/dashboard' element={token?<Dashboard/>:<Navigate to ='/signin'/>}/>
+      <Route path='/admindashboard' element={<AdminDashboard/>}/>
       
       
 

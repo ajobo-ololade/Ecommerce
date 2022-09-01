@@ -16,7 +16,11 @@ const adminSchema = mongoose.Schema({
         type:String,
         require:true,
     },
-    
+    date:{
+        type:Date,
+        default:Date.now
+
+    },
 
 })
 let adminModel = mongoose.model('admin_tb',adminSchema)
