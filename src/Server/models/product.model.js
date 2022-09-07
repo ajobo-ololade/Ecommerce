@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const productSchema = mongoose.Schema({
-    nameofProduct:{
+    name:{
         type:String,
         require:true
     },
@@ -14,14 +14,14 @@ const productSchema = mongoose.Schema({
         type:String,
         require:true
     },
-    sizes:{
-        type:String,
+    size:{
+        type:String ,
         require:true
 
     },
     
-    picture:{
-        type:String,
+    image:{
+        type:String ,
         require:true,
     },
     flavours:{
@@ -29,7 +29,7 @@ const productSchema = mongoose.Schema({
         require:true,
     },
 
-    yearofProduction:{
+    yearofP:{
         type:String,
         require:true,
     },

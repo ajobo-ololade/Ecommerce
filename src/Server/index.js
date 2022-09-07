@@ -8,6 +8,8 @@ app.use(cors())
 require("dotenv").config()
 const userRouter = require('./routes/user.route')
 app.use('/user', userRouter)
+const adminRouter = require('./routes/admin.route')
+app.use('/admin',adminRouter)
 const PORT = process.env.PORT||3000
 const URI = process.env.MONGO_URI
 const mongoose = require("mongoose")
