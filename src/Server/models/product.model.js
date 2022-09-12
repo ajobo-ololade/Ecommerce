@@ -28,6 +28,11 @@ const productSchema = mongoose.Schema({
         type:String,
         require:true,
     },
+    preview:{
+        type:String,
+        require:true,
+    },
+
 
     yearofP:{
         type:String,

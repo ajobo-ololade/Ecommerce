@@ -25,7 +25,7 @@ const Dashboard = (props) => {
       <Toolbar />
       <Divider />
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {['My Account', 'Orders', 'Inbox', 'Carts'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -38,7 +38,7 @@ const Dashboard = (props) => {
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['Saved Items', 'Trash', 'Log Out'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -98,7 +98,7 @@ const Dashboard = (props) => {
       >
         <Toolbar />
         <Typography variant="h5" color="initial">
-          Welcome to Your Dashboard
+          Welcome to Your Dashboard   Ololade
         </Typography>
        
       </Box>
