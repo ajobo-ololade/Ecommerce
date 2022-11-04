@@ -18,7 +18,7 @@ const Navbar2 = (props) => {
         sx={{
             // backgroundColor:"red",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
+          ml: { sm: `${drawerWidth}px` },backgroundColor:'black'
         }}
       >
         <Toolbar>
